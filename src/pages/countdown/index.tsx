@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from "react";
 import './index.less';
 
-const Countdown = () => {
+const Countdown: React.FC = () => {
 
   useEffect(() => {
     let target = new Date('2023-1-22').getTime();
-    let days = document.querySelector('.item:nth-child(1) .number');
-    let hours = document.querySelector('.item:nth-child(2) .number');
-    let mins = document.querySelector('.item:nth-child(3) .number');
-    let secs = document.querySelector('.item:nth-child(4) .number');
+    let days = document.querySelector('.item:nth-child(1) .number') as HTMLElement;
+    let hours = document.querySelector('.item:nth-child(2) .number') as HTMLElement;
+    let mins = document.querySelector('.item:nth-child(3) .number') as HTMLElement;
+    let secs = document.querySelector('.item:nth-child(4) .number') as HTMLElement;
   
-    function setHTML(dom: any, value: any) {
+    function setHTML(dom: HTMLElement, value: Number) {
       let nextValue = value.toString().padStart(2, '0');
-      let curValue = dom.dataset?.number;
+      let curValue = dom?.dataset.number;
       if (nextValue === curValue) {
         return;
       }

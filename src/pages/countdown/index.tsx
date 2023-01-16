@@ -3,30 +3,37 @@ import './index.less';
 
 const Countdown: React.FC = () => {
 
+  let target = new Date('2023-1-22').getTime();
+
+  /**
+   * 设置翻动效果
+   * @param dom {HTMLElement}
+   * @param value {Number}
+   * @returns {void}
+   */
+  const setHTML = (dom: HTMLElement, value: Number): void => {
+    let nextValue = value.toString().padStart(2, '0');
+    let curValue = dom?.dataset.number;
+    if (nextValue === curValue) {
+      return;
+    }
+    dom.innerHTML = `<div class="cur top"><span>${curValue}</span></div>
+              <div class="cur bottom"><span>${curValue}</span></div>
+              <div class="next top"><span>${nextValue}</span></div>
+              <div class="next bottom"><span>${nextValue}</span></div>`;
+    dom.classList.remove('flip');
+    dom.clientHeight;
+    dom.classList.add('flip');
+    dom.dataset.number = nextValue;
+  }
+
   useEffect(() => {
-    let target = new Date('2023-1-22').getTime();
     let days = document.querySelector('.item:nth-child(1) .number') as HTMLElement;
     let hours = document.querySelector('.item:nth-child(2) .number') as HTMLElement;
     let mins = document.querySelector('.item:nth-child(3) .number') as HTMLElement;
     let secs = document.querySelector('.item:nth-child(4) .number') as HTMLElement;
-  
-    function setHTML(dom: HTMLElement, value: Number) {
-      let nextValue = value.toString().padStart(2, '0');
-      let curValue = dom?.dataset.number;
-      if (nextValue === curValue) {
-        return;
-      }
-      dom.innerHTML = `<div class="cur top"><span>${curValue}</span></div>
-                <div class="cur bottom"><span>${curValue}</span></div>
-                <div class="next top"><span>${nextValue}</span></div>
-                <div class="next bottom"><span>${nextValue}</span></div>`;
-      dom.classList.remove('flip');
-      dom.clientHeight;
-      dom.classList.add('flip');
-      dom.dataset.number = nextValue;
-    }
-  
-    function setNumbers() {
+
+    const setNumbers = () => {
       let now = Date.now();
       let dis = target - now;
       if (dis < 0) {

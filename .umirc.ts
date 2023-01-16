@@ -25,5 +25,11 @@ export default defineConfig({
       title: '拖拽排序',
       component: './dragDrop',
     },
+    {
+      name: '立体文字',
+      path: '/threeDimensional',
+      title: '立体文字',
+      component: './threeDimensional',
+    },
   ],
 });

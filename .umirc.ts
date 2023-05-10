@@ -31,5 +31,11 @@ export default defineConfig({
       title: '立体文字',
       component: './threeDimensional',
     },
+    {
+      name: '滑动开关',
+      path: '/radioTab',
+      title: '滑动开关',
+      component: './radioTab',
+    },
   ],
 });

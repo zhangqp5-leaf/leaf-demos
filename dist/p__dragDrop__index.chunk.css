@@ -1,0 +1,1 @@
+.list{display:flex;align-items:center;gap:16px;flex-direction:column}.list .list-item{background:lightcoral;display:flex;align-items:center;justify-content:center;color:#fff;padding:8px 0;width:60%;border-radius:8px;border:1px solid transparent}.list .list-item.moving{background:transparent;color:transparent;border:1px dashed #ccc}

@@ -7,7 +7,7 @@
 # echo "----------------编译完成----------------"
 
 echo "---------------复制包到指定目录--------------"
-cp -r /root/frontend/leaf-demos/dist /usr/share/nginx/demo_html
+cp -rf /root/frontend/leaf-demos/dist /usr/share/nginx/demo_html
 echo "---------------复制完成---------------------"
 
 echo "---------------重启nginx---------------"

@@ -3,7 +3,7 @@ import './index.less';
 
 const Countdown: React.FC = () => {
 
-  let target = new Date('2023-1-22').getTime();
+  let target = new Date('2025-1-29').getTime();
 
   /**
    * 设置翻动效果
